@@ -18,21 +18,41 @@
                 </div>
                 <nav class="header-internal-links">
                     <a class="header-nav home" href="../index.html">
-                        <Span>Home</Span>
+                        <Span class="mobile">Home</Span>
                     </a>
                     <a class="header-nav about" href="about.html">
-                        <Span>About</Span>
+                        <Span class="mobile">About</Span>
                     </a>
                     <a class="header-nav gallery" href="gallery.html">
-                        <Span>Gallery</Span>
+                        <Span class="mobile">Gallery</Span>
                     </a>
                     <a class="header-nav contact" href="contact.html">
-                        <Span>Contact</Span>
+                        <Span class= "desktop">Contact</Span>
                     </a>
                 </nav>
                 <div class="header-actions">
+                    <div class="off-screen-menu">
+                        <a class="header-ham-nav home" href="../index.html">
+                            <Span>Home</Span>
+                        </a>
+                        <a class="header-ham-nav about" href="about.html">
+                            <Span>About</Span>
+                        </a>
+                        <a class="header-ham-nav contact" href="contact.html">
+                            <Span>Contact</Span>
+                        </a>
+                        <a class="header-ham-nav gallery" href="gallery.html">
+                            <Span>Gallery</Span>
+                        </a>
+                    </div>
+                    <nav class="ham-menu">
+                        <Span></Span>
+                        <Span></Span>
+                        <Span></Span>
+                    </nav>
                     <a class="header-nav actions" href="contact.html">
-                        <span id="action">Schedule a Trip</span>
+                        <span class= "desktop" id="action">Schedule a Trip</span>
+                        <span class= "mobile" id="action">Contact</span>
                     </a>
                 </div> 
             </div>
@@ -77,6 +97,7 @@
         </div>
     </Footer>
 
-    <Script src="../app.JS"></Script>
+    <Script src="../gallery-app.JS"></Script>
+    <Script src="../ham-app.js"></Script>
 </body>
 </html>

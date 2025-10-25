@@ -1,3 +1,27 @@
+:root {
+    --hero-color: #ffffff;
+    --hero-color-fade: oklch(from var(--hero-color) l c h /.65) ;
+    --primary-color: rgba(184, 103, 27, 0.90);
+    --secondary-color: rgba(0, 0, 0, 0.918);
+    --accent-color1:black;
+
+    --hero-color-dark: #252525;
+    --hero-color-fade-dark: oklch(from var(--hero-color) l c h /.65) ;  
+    --primary-color-dark: rgba(56, 56, 56, 0.90);  
+    --secondary-color-dark: rgba(0, 0, 0, 0.918);
+    --accent-color1-dark: white;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --hero-color: var(--hero-color-dark);
+        --hero-color-fade: var(--hero-color-fade-dark);
+        --primary-color: var(--primary-color-dark);
+        --secondary-color: var(--secondary-color-dark);
+        --accent-color1: var(--accent-color1-dark);
+    }
+}
+
 body {
     background: RGB(58,58,58);
     color: white;
@@ -12,30 +36,25 @@ body {
     background-image: url(Images/heroimg.png);
     background-size: 100%;
     background-position: center;
+    box-sizing: border-box;
     border-image: 
     linear-gradient(
-        #ffffff00 50%,
-        rgba(255, 255, 255, 0.671) 70%,
-        #ffffff 90%)
+        #00000000 50%,
+        var(--hero-color-fade) 70%,
+        var(--hero-color) 90%)
         fill 1;
-        height: 400px;
-        padding: 20px;
+        height: 20rem;
+        padding: 1rem;
         position: relative;
         width: 100%;
 }
     
-.heroImg {
-    width: 100%;
-    object-fit: cover;
-    display: block;
-}
-    
 header a {
     color: white;
-    font-size: 40px;
+    font-size: 2rem;
     text-decoration: none;
     text-shadow: 5px 5px 5px black;
-    margin-top: 40px; 
+    margin-top: 2rem; 
 }
 
 .header-content {
@@ -48,25 +67,90 @@ header a {
 }
 
 .header-nav {
-    margin-right: 20px;
+    margin-right: 1rem;
 }
 
 .header-nav.Logo {
     background-color: wheat;
     background-image: url("Images/Logo_400.png");
-    background-size: 100px;
+    background-size: 5rem;
     border-radius: 50%;
     display: inline-flex;
     position: relative;
-    Top: -25px;
-    height: 100px;
-    Width: 100px;
+    Top: -1.25rem;
+    height: 5rem;
+    Width: 5rem;
     text-indent: -9999999px ;
 }
 
 .header-internal-links {
     display: inline-flex;
 }    
+
+.off-screen-menu {
+    background-color: var(--primary-color);
+    height: auto;
+    width: 100%;
+    max-width: 12rem;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-size: 3rem;
+    transition: .3s ease;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    border-radius: .5rem;
+}
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+.ham-menu {
+    height: 5rem;
+    width: 5rem;
+    margin-top: .75rem;
+    margin-left: auto;
+    position: relative;
+}
+
+.ham-menu span {
+    height: .5rem;
+    width: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 .large-header .header-actions {
     width: 100%;
@@ -77,14 +161,21 @@ header a {
 
 .header-nav.actions {
     display: inline-flex;
-    margin-right: 50px;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    position: relative;
+}
+
+.mobile-tab, .ham-menu{
+    visibility: hidden;
+    position: absolute;
 }
 
 #action {
-    height: 50px;
-    padding: 10px;
-    background-color: rgba(209, 130, 66, 0.75);
-    border-radius: 25px;
+    height: 2.5rem;
+    padding: 1rem;
+    background-color: rgba(230, 116, 50, 0.75);
+    border-radius: 1.5rem;
 }
 
 #action:hover {
@@ -92,25 +183,22 @@ header a {
     box-shadow: 3px 3px 10px black;
 } 
 
+
 /*sections*/
 section {
-        background: white;
-        color: gray;
-        padding: 20px;
+    background: rgb(255, 255, 255);
+    color: gray;
+    padding: 20px;
 }
-    
+
 .info {
-        
-        background-color: pink;
+    
+    background-color: pink;
     display: inline-block;
     width: 100px;
 }
 
 
-footer {
-    background: black;
-    padding: 10px 20px;
-}
 /*Gallery*/
 
 .container {
@@ -160,30 +248,93 @@ footer {
 /*footer*/
 
 .large-footer {
+    background: black;
+    padding: 1rem 2rem;
     display: inline-flex;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-logo {
-    height: 80px;
+    height: 5rem;
     width: auto;
     border-radius: 50%;
+    margin-top: 1rem;
+}
+
+.footer-contact {
+    margin-top: 1.5rem;
+    margin-right: 2.5rem;
 }
 
 .footer-adress, .footer-name {
     display: block;
-    font-size: 30px;
-    margin: 10px;
+    font-size: 2.0rem;
+    margin: 1rem;
 }
 
 .footer-email, .footer-number {
     display: block;
 }
 
+
 .footer-facebook {
     background-color: rgb(102, 156, 255);
     border-radius: 50%;
-    padding: 2px;
+    padding: .25rem;
     position: relative;
-    top: 5px;
+    top: .5rem;
+}
+
+/*Mobile*/ 
+
+.mobile#action {
+        visibility: hidden;
+        position: absolute;
+}
+
+@media (max-width:900px) {
+
+    .desktop, .ham-menu {
+        visibility: hidden;
+        position: absolute;
+}
+
+    .mobile, .mobile#action {
+        visibility: visible;
+        position: static;
+}
+
+    .footer-adress, .footer-name {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width:650px) {
+    .mobile, .mobile#action {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .desktop {
+        visibility: hidden;
+        position: absolute;
+}
+
+    .ham-menu {
+        visibility: visible;
+        position: relative;
+    }
+
+    .header-internal-links {
+        visibility: hidden;
+        position: absolute;        
+    }
+}
+
+@media (max-width:500px) {
+    .large-footer {
+        display: block;
+    }
 }
