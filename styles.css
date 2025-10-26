@@ -4,6 +4,8 @@
     --primary-color: rgba(184, 103, 27, 0.90);
     --secondary-color: rgba(0, 0, 0, 0.918);
     --accent-color1:black;
+    --text1: gray;
+    --text-facbook:#004f9d;
 
     --hero-color-dark: #252525;
     --hero-color-fade-dark: oklch(from var(--hero-color) l c h /.65) ;  
@@ -186,9 +188,19 @@ header a {
 
 /*sections*/
 section {
-    background: rgb(255, 255, 255);
-    color: gray;
-    padding: 20px;
+    background: var(--hero-color);
+    color: var(--text1);
+    padding: 2rem;
+}
+
+.contact {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.large-facebook {
+    position: relative;
+    fill: var(--hero-color);
 }
 
 .info {
