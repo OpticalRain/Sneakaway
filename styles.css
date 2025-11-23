@@ -89,6 +89,10 @@ header a {
     display: inline-flex;
 }    
 
+.header-nav.about {
+    white-space: nowrap;
+}
+
 .off-screen-menu {
     background-color: var(--primary-color);
     height: auto;
@@ -106,6 +110,7 @@ header a {
     padding-left: 2rem;
     padding-bottom: 2rem;
     border-radius: .5rem;
+    visibility: hidden;
 }
 
 .off-screen-menu.active {
@@ -204,10 +209,17 @@ section {
 }
 
 .info {
-    
-    background-color: pink;
     display: inline-block;
     width: 100px;
+}
+
+.About-Info, .About-Price {
+    display: inline-block;
+    margin: auto;
+    width: 80%;
+    position: relative;
+    font-size: 100%;
+    color: var(--accent-color1);
 }
 
 
@@ -320,11 +332,6 @@ section {
     .footer-adress, .footer-name {
         font-size: 1rem;
     }
-
-    .off-screen-menu {
-        visibility: hidden;
-    }
-
 }
 
 @media (max-width:650px) {
